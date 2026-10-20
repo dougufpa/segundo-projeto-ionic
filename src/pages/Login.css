@@ -1,0 +1,76 @@
+/* Centralização e container principal */
+.login-content {
+  --background: #f4f5f8;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 40px auto 0 auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Cabeçalho do Card de Login */
+.login-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.login-header h2 {
+  margin: 0;
+  font-weight: 700;
+  color: #222428;
+}
+
+.login-header p {
+  margin: 8px 0 0 0;
+  color: #92949c;
+  font-size: 0.9rem;
+}
+
+/* Campos de entrada */
+.login-list {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.input-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  margin-bottom: 16px;
+}
+
+.input-icon {
+  color: #92949c;
+  margin-right: 12px;
+  margin-top: 16px;
+  font-size: 1.2rem;
+}
+
+/* Link de Recuperar Senha */
+.forgot-password-container {
+  text-align: right;
+  margin-bottom: 24px;
+}
+
+.forgot-password-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.forgot-password-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Botão Enviar */
+.submit-button {
+  margin-top: 8px;
+  --border-radius: 8px;
+  font-weight: 600;
+}
