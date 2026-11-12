@@ -1,82 +1,47 @@
 import React, { useState } from 'react';
-import {IonContent, IonPage, IonInput, IonButton, IonItem,
-  IonList, IonText, IonIcon, IonHeader, IonToolbar, IonTitle
+import {
+  IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,
+  IonInput, IonItem,
+  IonButton
 } from '@ionic/react';
+import { useParams } from 'react-router-dom';
 import { mailOutline, lockClosedOutline } from 'ionicons/icons';
 import './Login.css';
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Lógica de autenticação aqui
-    console.log('Login submetido:', { email, password });
-  };
-
-  const handleForgotPassword = () => {
-    // Lógica para recuperação de senha
-    console.log('Navegar para recuperação de senha');
-  };
+  const { name = '' } = useParams<{ name: string; }>();
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar color="primary">
-          <IonTitle>Acesso ao Sistema</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+    <div className='tela-login' >
+      <IonCard>
+        <IonCardHeader>
+          <IonCardTitle color={'success'} >App 2</IonCardTitle>
+        </IonCardHeader>
 
-      <IonContent className="login-content ion-padding">
-        <div className="login-container">
-          <div className="login-header">
-            <h2>Bem-vindo!</h2>
-            <p>Faça login para continuar</p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="login-form">
-            <IonList lines="full" className="login-list">
-              <IonItem className="input-item">
-                <IonIcon slot="start" icon={mailOutline} className="input-icon" />
-                <IonInput
-                  label="E-mail"
-                  labelPlacement="floating"
-                  type="email"
-                  placeholder="seu@email.com"
-                  value={email}
-                  onIonInput={(e) => setEmail(e.detail.value!)}
-                  required
-                />
-              </IonItem>
-
-              <IonItem className="input-item">
-                <IonIcon slot="start" icon={lockClosedOutline} className="input-icon" />
-                <IonInput
-                  label="Senha"
-                  labelPlacement="floating"
-                  type="password"
-                  placeholder="Sua senha"
-                  value={password}
-                  onIonInput={(e) => setPassword(e.detail.value!)}
-                  required
-                />
-              </IonItem>
-            </IonList>
-
-            <div className="forgot-password-container">
-              <IonText color="primary" onClick={handleForgotPassword} className="forgot-password-link">
-                Esqueceu a senha?
-              </IonText>
-            </div>
-
-            <IonButton expand="block" type="submit" className="submit-button">
-              Enviar
+        <IonCardContent>
+          <IonItem>
+            <IonInput label="E-mail" labelPlacement="floating" placeholder="Digite o e-mail" type='email'></IonInput>
+          </IonItem>
+          <IonItem>
+            <IonInput label="Senha" labelPlacement="floating" placeholder="Digite a senha" type='password'></IonInput>
+          </IonItem>
+          <IonItem>
+            <IonButton fill='clear'>
+              Esqueci a senha/e-mail
             </IonButton>
-          </form>
-        </div>
-      </IonContent>
-    </IonPage>
+          </IonItem>
+          <IonItem>
+            <IonButton size='full' color={'success'}>
+              Login
+            </IonButton>
+            <IonButton size='full' fill='clear'>
+              Cadastro
+            </IonButton>
+          </IonItem>
+        </IonCardContent>
+      </IonCard>
+    </div>
   );
 };
 

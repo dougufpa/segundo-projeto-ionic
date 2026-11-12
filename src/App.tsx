@@ -45,10 +45,10 @@ const App: React.FC = () => {
         <IonSplitPane contentId="main">
           <Menu />
           <IonRouterOutlet id="main">
-            <Route path="/" element={<Navigate to="/folder/Inbox" replace />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/" element={<Navigate to="/Login" replace />} />
             <Route path="/folder/:name" element={<Page />} />
             <Route path="/Loader" element={<Loader />} />
-            <Route path="/Login" element={<Login />} />
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
